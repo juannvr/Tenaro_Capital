@@ -29,7 +29,7 @@ Depois de escolher o serviço, atualize o fornecedor em `privacidade.html`.
 
 ## Trocar o cargo
 
-Se "Managing Director" mudar para "Sócio-diretor", altere as três ocorrências em `index.html`:
+O cargo atual é "Sócio-diretor". Para mudar, altere as três ocorrências em `index.html`:
 
 - o texto alternativo da foto
 - a legenda da foto
