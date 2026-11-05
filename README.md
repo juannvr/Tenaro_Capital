@@ -21,7 +21,7 @@ Execute o comando nesta pasta e abra http://localhost:8000.
 
 ## Ativar o formulário
 
-O formulário ainda não envia mensagens. Enquanto não houver destino, ele mostra ao visitante o e-mail e o WhatsApp.
+Sem um serviço configurado, ao terminar as duas etapas o visitante escolhe entre WhatsApp e e-mail, e a mensagem abre pronta com o que foi preenchido. Se o serviço estiver configurado e falhar, ele vê a mesma opção, sem perder os dados.
 
 Para ativar, crie um formulário em um serviço como o Formspree, com destino lucas@tenarocapital.com, e troque `action="#"` em `index.html` pelo endereço `https` recebido. Os nomes dos campos `_gotcha` (honeypot) e `_subject` (assunto) já seguem o padrão do Formspree. Se usar outro serviço, confira como ele trata esses dois campos.
 

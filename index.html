@@ -276,45 +276,81 @@ Perfil no LinkedIn</a>
 Conversar pelo WhatsApp</a>
 </div>
 
-<!-- DESTINO DO ENVIO: troque action="#" pelo endereço https do serviço de formulário (por exemplo, Formspree). Veja o README. -->
+<!-- DESTINO DO ENVIO: troque action="#" pelo endereço https do serviço de formulário (por exemplo, Formspree). Sem isso, a mensagem abre pronta no WhatsApp ou no e-mail. Veja o README. -->
 <form class="contact-form reveal" id="contact-form" aria-label="Formulário de contato" action="#" method="post" novalidate>
 <input type="hidden" name="_subject" value="Novo contato pelo site da Tenaro Capital">
 <div class="hp" aria-hidden="true"><label>Não preencha este campo<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+
+<div class="form-progress js-only" aria-hidden="true"><span class="form-progress__seg is-on"></span><span class="form-progress__seg" id="progress-2"></span></div>
+
+<fieldset class="form-step is-active" id="step-1">
+<legend class="form-step__legend"><span class="form-step__count js-only">Etapa 1 de 2</span><span class="form-step__title" tabindex="-1">Como falamos com você?</span></legend>
 <div class="form-grid">
-<div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" type="text" autocomplete="name" aria-describedby="f-nome-erro"><p class="field__error" id="f-nome-erro"></p></div>
+<div class="field field--wide"><label for="f-nome">Nome</label><input id="f-nome" name="nome" type="text" autocomplete="name" aria-describedby="f-nome-erro"><p class="field__error" id="f-nome-erro"></p></div>
+<div class="field"><label for="f-tel">Telefone</label><input id="f-tel" name="telefone" type="tel" autocomplete="tel" aria-describedby="f-tel-erro"><p class="field__error" id="f-tel-erro"></p></div>
+<div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="f-email-erro"><p class="field__error" id="f-email-erro"></p></div>
+</div>
+<fieldset class="prefs">
+<legend>Como prefere ser contatado?</legend>
+<div class="prefs__options">
+<label class="chip"><input type="radio" name="pref" value="whatsapp"><span>WhatsApp</span></label>
+<label class="chip"><input type="radio" name="pref" value="telefone"><span>Telefone</span></label>
+<label class="chip"><input type="radio" name="pref" value="email"><span>E-mail</span></label>
+</div>
+</fieldset>
+<button class="form-submit js-only" type="submit" data-action="next">Continuar</button>
+</fieldset>
+
+<fieldset class="form-step" id="step-2">
+<legend class="form-step__legend"><span class="form-step__count js-only">Etapa 2 de 2</span><span class="form-step__title" tabindex="-1">Conte um pouco sobre a empresa</span></legend>
+<p class="form-step__hint">Tudo aqui é opcional. Compartilhe só o que fizer sentido agora.</p>
+<div class="form-grid">
 <div class="field"><label for="f-empresa">Empresa</label><input id="f-empresa" name="empresa" type="text" autocomplete="organization" aria-describedby="f-empresa-erro"><p class="field__error" id="f-empresa-erro"></p></div>
 <div class="field"><label for="f-cargo">Cargo</label><input id="f-cargo" name="cargo" type="text" autocomplete="organization-title" aria-describedby="f-cargo-erro"><p class="field__error" id="f-cargo-erro"></p></div>
-<div class="field"><label for="f-cidade">Cidade / Estado</label><input id="f-cidade" name="cidade" type="text" aria-describedby="f-cidade-erro"><p class="field__error" id="f-cidade-erro"></p></div>
 <div class="field"><label for="f-setor">Setor</label><input id="f-setor" name="setor" type="text" aria-describedby="f-setor-erro"><p class="field__error" id="f-setor-erro"></p></div>
-<div class="field"><label for="f-fat">Faturamento anual aproximado</label><select id="f-fat" name="faturamento"><option value="">Selecione uma faixa</option>
+<div class="field"><label for="f-cidade">Cidade / Estado</label><input id="f-cidade" name="cidade" type="text" aria-describedby="f-cidade-erro"><p class="field__error" id="f-cidade-erro"></p></div>
+<div class="field field--wide"><label for="f-fat">Faturamento anual aproximado</label><select id="f-fat" name="faturamento"><option value="">Selecione uma faixa</option>
 <option value="ate-30">Até R$ 30 milhões</option>
 <option value="30-60">De R$ 30 a 60 milhões</option>
 <option value="60-150">De R$ 60 a 150 milhões</option>
 <option value="150-300">De R$ 150 a 300 milhões</option>
 <option value="300+">Acima de R$ 300 milhões</option>
 <option value="nao-informar">Prefiro não informar agora</option></select><p class="field__error" id="f-fat-erro"></p></div>
-<div class="field"><label for="f-tel">Telefone</label><input id="f-tel" name="telefone" type="tel" autocomplete="tel" aria-describedby="f-tel-erro"><p class="field__error" id="f-tel-erro"></p></div>
-<div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="f-email-erro"><p class="field__error" id="f-email-erro"></p></div>
+<div class="field field--wide"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" rows="3"></textarea></div>
 </div>
-<div class="field"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" rows="4"></textarea></div>
-<fieldset class="prefs">
-<legend>Como prefere ser contatado?</legend>
-<div class="prefs__options">
-<label class="prefs__option"><input type="radio" name="pref" value="whatsapp">WhatsApp</label>
-<label class="prefs__option"><input type="radio" name="pref" value="telefone">Telefone</label>
-<label class="prefs__option"><input type="radio" name="pref" value="email">E-mail</label>
-</div>
-</fieldset>
 <div class="consent">
-<label class="consent__label"><input type="checkbox" id="f-consent" name="consentimento" value="sim" aria-describedby="f-consent-erro"><span>Li e concordo com a <a href="privacidade.html">Política de Privacidade</a> e autorizo o uso dos meus dados para o retorno deste contato.</span></label>
+<label class="consent__label"><input type="checkbox" id="f-consent" name="consentimento" value="sim" aria-describedby="f-consent-erro"><span>Li e concordo com a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o uso dos meus dados para o retorno deste contato.</span></label>
 <p class="field__error" id="f-consent-erro"></p>
 </div>
-<button class="form-submit" type="submit">Enviar mensagem</button>
-<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+<div class="form-actions js-only">
+<button class="form-back" type="button" id="form-back">Voltar</button>
+<button class="form-submit" type="submit" id="form-send">Enviar mensagem</button>
+</div>
+</fieldset>
+
+<p class="no-js-only">Para enviar, escreva para lucas@tenarocapital.com ou chame no WhatsApp: +55 11 99322-8666.</p>
+
+<div class="form-panel" id="form-success" tabindex="-1" hidden>
+<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#5E6B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"></circle><path d="M8 12.4l2.7 2.7L16 9.6"></path></svg>
+<p class="form-panel__title">Mensagem enviada.</p>
+<p class="form-panel__text">Obrigado pelo contato. O Lucas retorna pessoalmente.</p>
+</div>
+
+<div class="form-panel" id="form-handoff" tabindex="-1" hidden>
+<p class="form-panel__title" id="handoff-title">Falta só escolher por onde enviar</p>
+<p class="form-panel__text">A mensagem abre pronta, com o que você preencheu. É só confirmar o envio.</p>
+<div class="form-panel__actions">
+<a class="btn btn--navy" id="handoff-wa" href="https://wa.me/5511993228666" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+<a class="btn btn--outline" id="handoff-mail" href="mailto:lucas@tenarocapital.com">Enviar por e-mail</a>
+</div>
+<button class="form-back" type="button" id="handoff-back">Voltar e editar</button>
+</div>
+
 <p class="form-note">
 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#5E6B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="1.5"></rect><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path></svg>
 <span>Toda informação enviada é tratada com total confidencialidade e lida apenas pelo Lucas.</span>
 </p>
+<p class="sr-only" id="form-live" role="status" aria-live="polite"></p>
 </form>
 </div>
 </section>
@@ -339,7 +375,7 @@ Lucas Silveira no LinkedIn</a>
 </div>
 <div class="site-footer__bottom">
 <span>© 2026 Tenaro Capital. Todos os direitos reservados.</span>
-<span>São Paulo, Brasil</span>
+<span class="site-footer__legal"><a href="privacidade.html">Política de Privacidade</a><span>São Paulo, Brasil</span></span>
 </div>
 </div>
 </footer>
