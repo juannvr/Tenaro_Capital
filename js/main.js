@@ -1,5 +1,14 @@
 // Tenaro Capital: menu no celular e envio do formulário de contato.
 
+// ---------- Barra do topo: mais transparente enquanto está sobre a foto ----------
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  function update() { header.classList.toggle('is-top', window.scrollY < 40); }
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
+
 // ---------- Menu ----------
 (function () {
   var toggle = document.querySelector('.nav-toggle');
