@@ -144,7 +144,7 @@ p, h1, h2, h3, ol, ul, dl, dd, figure, blockquote { margin: 0; }
 
 /* ---------- Hero ---------- */
 .hero {
-  position: relative; min-height: 794px; margin-top: -74px; /* a foto sobe por trás da barra */
+  position: relative; min-height: 826px; margin-top: -74px; /* a foto sobe por trás da barra */
   display: flex; flex-direction: column; justify-content: flex-end;
   overflow: hidden; background: #1D2A2F;
 }
@@ -388,14 +388,53 @@ p, h1, h2, h3, ol, ul, dl, dd, figure, blockquote { margin: 0; }
 .legal__flag { padding: 12px 14px; background: #ECEBE3; border-left: 2px solid #5E6B4E; font-weight: 600; }
 
 /* ---------- Animações ---------- */
-@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes heroin { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .hero-in { animation: heroin 1.2s cubic-bezier(.2, .7, .2, 1) both; }
-@supports (animation-timeline: view()) {
-  .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 5% entry 40%; }
+/* O conteúdo surge uma vez ao entrar na tela. A classe .js garante que, sem JavaScript, tudo fique visível. */
+.js .reveal {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.8s cubic-bezier(.2, .7, .2, 1), transform 0.8s cubic-bezier(.2, .7, .2, 1);
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+@media print { .js .reveal { opacity: 1; transform: none; } }
+
+/* Passagem entre seções: entre tons claros, um degradê discreto */
+#por-que, #processo { position: relative; }
+#por-que::before, #processo::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: clamp(64px, 8vw, 112px);
+  background: linear-gradient(180deg, var(--fade-from) 0%, transparent 100%);
+  pointer-events: none;
+}
+#por-que { --fade-from: #F6F5F0; }
+#processo { --fade-from: #ECEBE3; }
+
+/* Quando a cor muda muito, a seção sobe como uma folha sobre a anterior */
+#conceito, #empresas, #quem-somos, #contato {
+  --sheet-radius: clamp(20px, 2.4vw, 32px);
+  position: relative;
+  margin-top: calc(var(--sheet-radius) * -1);
+  border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
+}
+#conceito { background: #F6F5F0; }
+.hero { padding-bottom: clamp(20px, 2.4vw, 32px); }
+
+/* O contato se funde ao rodapé */
+.contact::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  height: clamp(64px, 8vw, 112px); pointer-events: none;
+  background: linear-gradient(0deg, #152024 0%, transparent 100%);
+}
+.contact__grid { z-index: 2; }
+
+/* Troca suave entre a página principal e a de privacidade (a barra do topo permanece) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-header; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.3s; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .hero-in { animation: none; }
+  .hero-in { animation: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .site-header__bar { transition: none; }
   html { scroll-behavior: auto; }
 }
