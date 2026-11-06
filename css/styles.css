@@ -432,7 +432,6 @@ html:not(.js) .no-js-only { display: block; }
 .legal__body h2 { font-family: 'Source Serif 4', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.2; margin-top: 18px; }
 .legal__body p, .legal__body li { font-size: 16.5px; line-height: 1.7; color: #45525A; }
 .legal__body ul { padding-left: 20px; }
-.legal__flag { padding: 12px 14px; background: #ECEBE3; border-left: 2px solid #5E6B4E; font-weight: 600; }
 
 /* ---------- Textos longos justificados ---------- */
 /* A hifenização evita buracos entre as palavras. Em telas muito estreitas, o texto fica alinhado à esquerda. */
