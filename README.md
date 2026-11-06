@@ -19,16 +19,11 @@ Execute o comando nesta pasta e abra http://localhost:8000.
 - `assets/img/`: imagens em AVIF, WebP e JPEG, em vários tamanhos, e a imagem de compartilhamento
 - `assets/logo/`: favicons e logo usado nos dados estruturados
 
-## Ativar o envio direto do formulário
+## Envio do formulário
 
-Sem um serviço configurado, ao terminar as duas etapas o visitante escolhe entre WhatsApp e e-mail, e a mensagem abre pronta. Com o serviço configurado, o e-mail chega direto, e essa escolha só aparece se o envio falhar.
+O formulário envia direto para lucas@tenarocapital.com pelo Formspree. O destino é o atributo `action` do formulário em `index.html`. Se o envio falhar, o visitante vê a opção de abrir a mensagem pronta no WhatsApp ou no e-mail.
 
-Para ativar:
-
-1. Crie uma conta em https://formspree.io e um formulário com destino lucas@tenarocapital.com.
-2. Confirme o endereço de destino pelo e-mail que o Formspree enviar.
-3. Troque `action="#"` em `index.html` pelo endereço recebido, no formato `https://formspree.io/f/xxxxxxxx`.
-4. Nas configurações do formulário, restrinja o envio aos domínios do site.
+Nas configurações do formulário no Formspree, vale restringir o envio aos domínios do site. Ao mudar para o domínio definitivo, inclua `tenarocapital.com`.
 
 ## Trocar o cargo
 
