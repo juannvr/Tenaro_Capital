@@ -250,16 +250,6 @@ html:not(.js) .nav-toggle { display: none; }
 .criterion { padding: 26px 0; border-top: 1px solid rgba(205, 181, 130, 0.35); display: flex; flex-direction: column; gap: 10px; }
 .criterion dt { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #CDB582; }
 .criterion dd { font-size: 16.5px; line-height: 1.65; color: #DDE2E0; }
-.sectors {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr));
-  gap: 32px 72px; padding-top: 40px; border-top: 1px solid rgba(205, 181, 130, 0.35); align-items: start;
-}
-.sectors__intro { display: flex; flex-direction: column; gap: 18px; }
-.sectors__title { font-family: 'Source Serif 4', Georgia, serif; font-size: 25px; font-weight: 500; }
-.sectors__note { font-size: 15.5px; line-height: 1.65; color: #B9C0C6; }
-.sectors__cta { margin-top: 8px; }
-.sectors__list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 0 32px; }
-.sectors__list li { padding: 14px 0; border-bottom: 1px solid rgba(250, 247, 241, 0.14); font-size: 16px; color: #ECEBE3; }
 
 /* ---------- Quem somos ---------- */
 .about__inner { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 104px); }
@@ -443,6 +433,14 @@ html:not(.js) .no-js-only { display: block; }
 .legal__body p, .legal__body li { font-size: 16.5px; line-height: 1.7; color: #45525A; }
 .legal__body ul { padding-left: 20px; }
 .legal__flag { padding: 12px 14px; background: #ECEBE3; border-left: 2px solid #5E6B4E; font-weight: 600; }
+
+/* ---------- Textos longos justificados ---------- */
+/* A hifenização evita buracos entre as palavras. Em telas muito estreitas, o texto fica alinhado à esquerda. */
+@media (min-width: 521px) {
+  .concept__text, .process__lead, .secrecy__text, .about__par, .letter__text {
+    text-align: justify; -webkit-hyphens: auto; hyphens: auto;
+  }
+}
 
 /* ---------- Animações ---------- */
 @keyframes heroin { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
